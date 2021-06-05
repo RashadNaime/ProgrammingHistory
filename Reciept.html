@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="Shopping.css">
+        <script type="text/javascript" src="cookieFunctions.js"></script>
+        <script type="text/javascript" src="ShoppingCart.html"></script>
+        <script type="text/javascript" src="ShoppingCartForm.html"></script>
+    </head>
+    <body>
+        <h1>Thank You For Your Purchase!</h1>
+        <h2>Your total purchase came out to:</h2>
+        <script> 
+            document.write("$",getCookie("finalitem")+"</br>");
+            document.write("<h2>Card Info: </h2>");
+            document.write("CreditCard:"+getCookie("creditcard")+"</br>");
+            document.write("Security num:"+getCookie("security")+"</br>");
+            document.write("<h2>Your Receipt will be sent to: </h2>");
+            document.write("Email:"+getCookie("emaill")+"</br>");
+        </script>
+        
+    </body>
+</html>

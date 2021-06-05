@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="Shopping.css">
+<script type="text/javascript" src="cookieFunctions.js"></script>
+<script type="text/javascript" src="ShoppingCart.html"></script>
+</head>
+<body>
+
+    <h1>Complete Payment and Purchase</h1>
+    <p>Credit Card Number: <input minlength='16' maxlength = '16' name='CreditCard' id="creditcard"></p>
+    <p>3 digit security code: <input minlength='3' maxlength = '3' name='SecurityCode' id="security"></p>
+    <p>Email Address: <input type='email' name='emailaddress' id="emaill"></p>
+    <button type="button" onclick="getCardInfo();">Save Info</button>
+    <br><br>
+    <p>Please Save information before moving to receipt page:</p><br>
+    <button onclick="window.location.href='Reciept.html'">Pay/View Receipt</button>
+   
+        <script>
+            //Above is the input for the card information, currently does no do anything yet 
+            //This page will get all the cookies for each item and display it, if the item has been purchased
+            document.write("<br><br>"); 
+            document.write("<h1>Amount Paid Per Item / Total Amount: </h1>"); 
+            document.write("<br>"); 
+            //This is the final amount page, showing the totals of the item bought
+            //The information stored in the cookies in getInputValue are called back here
+            document.write("$",getCookie("item1")+"</br>");
+            document.write("$",getCookie("item2")+"</br>");
+            document.write("$",getCookie("item3")+"</br>");
+            document.write("$",getCookie("item4")+"</br>");
+            document.write("$",getCookie("item5")+"</br>");
+            document.write("$",getCookie("item6")+"</br>");
+            document.write("$",getCookie("item7")+"</br>");
+            document.write("$",getCookie("item8")+"</br>");
+            document.write("$",getCookie("item9")+"</br>");
+            document.write("$",getCookie("item10")+"</br>");
+            document.write("+<br>");
+            document.write("___________<br>")
+            //Show all the prices added into the total
+            //call the cookie of the final amount as well 
+            document.write("$",getCookie("finalitem")+" Total Amount</br>");
+            document.write("<br><br>"); 
+            //Create a return to page option if purchase would like to be redone
+            document.write("<h1>If you would like to re-purchase click the link below:</h1>"); 
+            
+            //If the user goes back to original page the cookies are reset back to zero
+            var blank = "";
+            setcookie("item1", blank, 1);
+            setcookie("item2", blank, 1);
+            setcookie("item3", blank, 1);
+            setcookie("item4", blank, 1);
+            setcookie("item5", blank, 1);
+            setcookie("item6", blank, 1);
+            setcookie("item7", blank, 1);
+            setcookie("item8", blank, 1);
+            setcookie("item9", blank, 1);
+            setcookie("item10", blank, 1);
+            
+            function getCardInfo(){ 
+            var em = document.getElementById("emaill").value;
+            var emailtext = JSON.stringify(em);
+            setCookie("emaill",emailtext,1);
+            
+            var cc = document.getElementById("creditcard").value;
+            var cctext = JSON.stringify(cc);
+            setCookie("creditcard",cctext,1);
+            
+            var sec = document.getElementById("security").value;
+            var sectext = JSON.stringify(sec);
+            setCookie("security",sectext,1);
+            }
+        </script>
+    <button onclick="window.location.href='ShoppingCartForm1.html'" style="margin-left:0px;margin-right:300px;margin-top:300px;margin-bottom:0px">Return to Purchase</button>
+</body>
+</html>
